@@ -2,6 +2,8 @@ package DocumentEditor;
 
 public interface DocumentViewer {
 
-    void update(DocumentData documentData);
+    void update(String data);
+
+    void display();
 
 }

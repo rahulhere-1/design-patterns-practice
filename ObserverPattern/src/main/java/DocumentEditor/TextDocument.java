@@ -11,14 +11,15 @@ public class TextDocument implements Document {
         documentViewerList = new ArrayList<>();
     }
 
-    private StringBuilder text;
+    private String text;
 
-    public StringBuilder getText() {
+    public String getText() {
         return text;
     }
 
-    public void setText(StringBuilder text) {
+    public void setText(String text) {
         this.text = text;
+        notifyDocumentViewer();
     }
 
     @Override
@@ -35,7 +36,7 @@ public class TextDocument implements Document {
     public void notifyDocumentViewer() {
 
         for(DocumentViewer viewer: documentViewerList){
-
+                viewer.update(text);
         }
 
     }

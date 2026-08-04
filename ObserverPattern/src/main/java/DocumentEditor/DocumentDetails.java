@@ -1,11 +1,10 @@
 package DocumentEditor;
 
-public class TextDocumentViewer implements DocumentViewer {
-
-    private String data;
+public class DocumentDetails implements DocumentViewer {
+    String data;
     private Document document;
 
-    public TextDocumentViewer(Document document){
+    public DocumentDetails(Document document){
         this.document = document;
         document.addDocumentViewer(this);
     }
@@ -13,8 +12,8 @@ public class TextDocumentViewer implements DocumentViewer {
     public void unSubscribeDocumentViewer(){
         document.removeDocumentViewer(this);
     }
-
-    public void update(String data){
+    @Override
+    public void update(String data) {
         this.data = data;
         display();
     }
@@ -22,8 +21,7 @@ public class TextDocumentViewer implements DocumentViewer {
     @Override
     public void display() {
         System.out.println("==============================================================");
-        System.out.println(data);
+        System.out.println("total characters: ".concat(Integer.toString(data.length())));
         System.out.println("==============================================================");
     }
-
 }
